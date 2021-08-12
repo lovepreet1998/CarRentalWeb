@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="card mb-3">
+    <h3 class="card-header text-center">Welcome to Car Rental</h3>
+    <img src="~/second.png" style="width:100%;height:400px" />
+    <div class="card-footer text-center">
+        <a asp-area="" class="btn btn-info mr-2" asp-page="/CarCategories/Index">All Types</a> 
+        <a asp-area="" class="btn btn-info mr-2" asp-page="/Companies/Index">All Companies</a> 
+        <a asp-area="" class="btn btn-info mr-2" asp-page="/Cars/Index">All Cars</a> 
+        <a asp-area="" class="btn btn-info mr-2" asp-page="/RentDetails/Index">All Rent Details</a>
+    </div>
+</div>

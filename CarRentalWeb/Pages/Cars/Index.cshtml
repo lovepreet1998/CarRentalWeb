@@ -1,0 +1,38 @@
+﻿@page
+@model CarRentalWeb.Pages.Cars.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>View All Car</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-info">Add New Car</a>
+</p>
+<hr />
+<div class="row">
+    @foreach (var item in Model.Car)
+    {
+        <div class="col-4">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.CarName)</h4>
+                    <h5>@Html.DisplayFor(modelItem => item.Category.CarCategoryName)</h5>
+                    <h5>@Html.DisplayFor(modelItem => item.Company.CompanyName)</h5>
+                    <h6>$@Html.DisplayFor(modelItem => item.Price) per hour*</h6>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a asp-page="./Edit" class="btn btn-secondary" asp-route-id="@item.CarID">Edit</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a asp-page="./Delete" class="btn btn-warning" asp-route-id="@item.CarID">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

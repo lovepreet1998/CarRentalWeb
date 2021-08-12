@@ -1,0 +1,47 @@
+﻿@page
+@model CarRentalWeb.Pages.RentDetails.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Rent Car Details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RentDetail.RentDetailID" />
+            <div class="form-group">
+                <label asp-for="RentDetail.CarID" class="control-label"></label>
+                <select asp-for="RentDetail.CarID" class="form-control" asp-items="ViewBag.CarID"></select>
+                <span asp-validation-for="RentDetail.CarID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentDetail.CustomerName" class="control-label"></label>
+                <input asp-for="RentDetail.CustomerName" class="form-control" />
+                <span asp-validation-for="RentDetail.CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentDetail.ContactNo" class="control-label"></label>
+                <input asp-for="RentDetail.ContactNo" class="form-control" />
+                <span asp-validation-for="RentDetail.ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentDetail.RentalDate" class="control-label"></label>
+                <input asp-for="RentDetail.RentalDate" class="form-control" />
+                <span asp-validation-for="RentDetail.RentalDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Details" class="btn btn-info" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a class="btn  btn-info" asp-page="Index">View All Companies</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
